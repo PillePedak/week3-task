@@ -25,10 +25,12 @@ html {
     margin-top: 2rem;
     height: 500px;
     max-width: 100%;
-
     border-radius: 1.5rem;
+    cursor: pointer;
     animation: bounce-poster 1.5s ease-in-out forwards;
 }
+
+
 
 .movie-rating {
     display: inline-block;
@@ -156,6 +158,48 @@ footer ul li a .fa-brands.fa-instagram {
 
 footer ul li a .fa-brands.fa-square-facebook {
     color: #005eff; /* Sinine */
+}
+.modal {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(71, 61, 61, 0.658);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.modal-content {
+    background-color: blanchedalmond;
+    margin: 5% auto;
+    padding: 5rem;
+    width: 600px;
+    height: 600px;
+    animation: zoom-in 1s;
+    border-radius: 15px;
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.closeBtn {
+    float: right;
+    cursor: pointer;
+    font-size: 2rem;
+    color: crimson;
+}
+
+.movie-poster-modal {
+    width: 300px;
+    border-radius: 1rem;
 }
 
 /* Poster animatsioon */
