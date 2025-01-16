@@ -11,8 +11,15 @@ html {
     color: #151515;
 }
 
+.container {
+    width: 75%;
+    text-align: center;
+    margin: 3rem auto;
+}
+
+/* Poster section */
 .movie-card {
-    margin-top: 10rem;
+    margin-top: 5rem;
     height: 800px;
     text-align: center;
 }
@@ -29,8 +36,6 @@ html {
     cursor: pointer;
     animation: bounce-poster 1.5s ease-in-out forwards;
 }
-
-
 
 .movie-rating {
     display: inline-block;
@@ -87,7 +92,7 @@ html {
 .movie-info-actions ul li {
     display: inline-block;
     margin-right: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 0rem;
     margin-bottom: 1rem;
     height: 50px;
     width: 50px;
@@ -119,87 +124,53 @@ html {
     text-decoration: none;
 }
 
-footer {
-    margin-top: 2rem;
-    text-align: center;
-    color: #777;
-    animation: fade-in-footer 2s ease-out forwards;
+/* Karuselli stiilid */
+.carousel {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
 }
 
-footer ul {
-    list-style: none;
-    padding: 0;
-}
-
-footer ul li {
-    display: inline-block;
-    margin-top: 2rem; 
-    margin-right: 2rem;
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: fade-in-footer-text 3s ease-out forwards;
-}
-
-footer ul li a {
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #777;
-}
-
-/* Ikoonide värvid */
-footer ul li a .fa-brands.fa-x-twitter {
-    color: #74C0FC; /* Helesinine */
-}
-
-footer ul li a .fa-brands.fa-instagram {
-    color: #ff80a6; /* Roosa */
-}
-
-footer ul li a .fa-brands.fa-square-facebook {
-    color: #005eff; /* Sinine */
-}
-.modal {
-    display: none;
-    position: fixed;
-    height: 100%;
+.carousel img {
     width: 100%;
-    background-color: rgba(71, 61, 61, 0.658);
-    z-index: 2;
-    top: 0;
-    left: 0;
-    text-align: center;
-}
-
-.modal-content {
-    background-color: blanchedalmond;
-    margin: 5% auto;
-    padding: 5rem;
-    width: 600px;
-    height: 600px;
-    animation: zoom-in 1s;
-    border-radius: 15px;
-}
-
-@keyframes zoom-in {
-    0% {
-        transform: scale(0);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.closeBtn {
-    float: right;
-    cursor: pointer;
-    font-size: 2rem;
-    color: crimson;
-}
-
-.movie-poster-modal {
-    width: 300px;
     border-radius: 1rem;
+}
+
+.carousel .carousel__item,
+.carousel .carousel__item--hidden {
+    display: none;
+}
+
+.carousel .carousel__item--visible {
+    display: block;
+    animation: fadeIn 0.6s;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.carousel .carousel__actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel .carousel__actions button {
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    height: 50px;
+    width: 50px;
+    border: 0;
+    background-color: rgba(121, 117, 116, 0.637);
+    font-size: 2rem;
+    color: white;
+    margin: 0.5rem;
 }
 
 /* Poster animatsioon */
@@ -235,18 +206,115 @@ footer ul li a .fa-brands.fa-square-facebook {
     }
 }
 
-/* Footer tekstide fade-in */
+footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #777;
+    animation: fade-in-footer 2s ease-out forwards;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin-top: 2rem; 
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fade-in-footer-text 3s ease-out forwards;
+}
+
+/* Ikoonide värvid */
+footer ul li a .fa-brands.fa-x-twitter {
+    color: #74C0FC; /* Helesinine */
+}
+
+footer ul li a .fa-brands.fa-instagram {
+    color: #ff80a6; /* Roosa */
+}
+
+footer ul li a .fa-brands.fa-square-facebook {
+    color: #005eff; /* Sinine */
+}
+
+footer ul li a {
+    color: #777;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #151515;
+}
+
+footer p {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    color: #777;
+}
+
 @keyframes fade-in-footer-text {
     0% {
         opacity: 0;
-        color: #fff; /* Ajutine valge varjund alguses */
     }
     100% {
         opacity: 1;
-        color: #777;
     }
 }
 
+footer h3 {
+    font-weight: normal;
+    font-size: 1.4rem;
+    color: #151515;
+    margin-top: 2rem;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: blanchedalmond;
+    margin: 5% auto;
+    padding: 5rem;
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    animation: zoom-in 1s;
+    border-radius: 15px;
+    position: relative;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.movie-poster-modal {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 1rem;
+}
+
 .movie-info-actions ul li a i {
-    color: red; /* Ikoonide punane värv */
+    color: red;
 }
